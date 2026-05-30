@@ -1,46 +1,117 @@
-# Hybrid Classical-Quantum Transfer Learning Benchmarking Framework
+# Quantum Transfer Learning (QTL) Benchmarking Suite
 
-## Overview
-This platform is a comprehensive benchmarking suite designed for the evaluation of **Hybrid Classical-Quantum Transfer Learning (QTL)** models. It was developed to support the revision of the manuscript "Hybrid Classical-Quantum Transfer Learning with Noisy Quantum Circuits" (CMES ID: 82712).
+Welcome to the **Quantum Transfer Learning (QTL) Benchmarking Framework** repository! 
 
-The framework provides a unified interface to compare high-performance classical backbones (ResNet, MobileNet, etc.) combined with Variational Quantum Circuit (VQC) heads simulated via **PennyLane** and **Qiskit**, inclusive of realistic noise modeling based on **IBM Heron r2** hardware.
+This codebase is a comprehensive suite designed to train, evaluate, and benchmark hybrid classical-quantum models against pure classical counterparts. It supports combining deep classical backbones (such as ResNet-18, MobileNet-V2, EfficientNet-B0, and RegNet-X-400MF) with both classical classifiers and Variational Quantum Circuits (VQCs) simulated using **PennyLane** and **Qiskit** (supporting both ideal and noisy environments modeled on real hardware).
+
+---
 
 ## Key Features
-- **Fair Baseline System:** Includes parameter-matched MLP heads to ensure quantum-classical comparisons are scientifically sound.
-- **Robust SLURM Orchestration:** Interactive `manager.py` tool for managing 692+ experiments on high-performance clusters (Hercules).
-- **Advanced Noise Modeling:** Integrated IBM hardware calibration (T1/T2 times, gate errors, readout noise).
-- **Statistical Significance:** Automatic execution across 5 seeds with $\mu \pm \sigma$ reporting in LaTeX.
-- **Sustainability Tracking:** Integrated **CodeCarbon** for tracking energy footprints (kWh) of quantum simulations.
-- **Comprehensive Visualization:** Per-epoch learning curves (Loss/Acc), ROC-AUC, PR-curves, and confusion matrices.
 
-## Quick Start (Hercules Cluster)
-1. **Clone and Install:**
-   ```bash
-   git clone <repo-url>
-   cd qtl_experiments
-   pip install -r requirements.txt
-   ```
-2. **Launch Management HUB:**
-   ```bash
-   python manager.py
-   # OR
-   bash hercules_orchestrator.sh
-   ```
-3. **Common Workflow:**
-   - Use `[R]` to refresh command lists.
-   - Use `[F]` to launch the Full Pipeline on SLURM.
-   - Use `[M]` to monitor progress and completion rates.
-   - Use `[T]` to generate LaTeX tables once the jobs finish.
+* **Fair Quantum-Classical Benchmarks:** Evaluates quantum models against parameter-matched Multi-Layer Perceptron (MLP) baselines to ensure comparison is scientifically valid.
+* **Unified Simulator Frontends:** Seamlessly switch between PennyLane and Qiskit simulator architectures.
+* **Realistic Noise Calibration:** Implements discrete and composite quantum noise channels calibrated against IBM Quantum Hardware (IBM Heron r2).
+* **Hardware & Energy Benchmarking:** Measures training/validation execution time and logs electrical carbon footprints (kWh) via **CodeCarbon**.
+* **Rich Visualizations:** Automatically logs training metrics (Loss, Accuracy, Precision, Recall, F1, AUC-ROC) and generates confusion matrices, learning curves, ROC-AUC curves, and Precision-Recall plots for every experiment.
+* **Statistical Rigor:** Easy multi-seed runs with scripts to automatically aggregate results and run pairwise t-tests/Wilcoxon tests.
+
+---
 
 ## Project Structure
-- `data/`: Dataset loaders and augmentation logic.
-- `heads/`: Implementation of Classical, PennyLane, and Qiskit heads.
-- `results/`: Output directory for models, checkpoints, and CSV logs.
-- `paper/`: Automatically generated LaTeX tables and methodology documents.
-- `manager.py`: Professional CLI for cluster execution.
-- `runner.py`: Core logic for hyperparameter sweep orchestration.
-- `trainer.py`: Robust training loop with epoch-level checkpointing and resume support.
 
-## Authors & Citation
-*Initial submission revision for CMES (April 2026).*
-For questions, contact the primary author at the institutional email provided in the manuscript.
+```
+├── data/
+│   ├── download_datasets.py    # Auto-downloads public datasets and guides Kaggle imports
+│   ├── loader.py               # Image dataset loading & preprocessing pipelines
+│   └── tabular_loader.py       # Pipelines for tabular dataset structures
+├── heads/
+│   ├── classical_head.py       # Classical Linear and MLP classifier heads
+│   ├── pennylane_head.py       # PennyLane VQC classifier head (ideal & noisy)
+│   └── qiskit_head.py          # Qiskit VQC classifier head (ideal & noisy)
+├── paper/
+│   ├── paper_sections.tex      # LaTeX source code of the paper
+│   └── tables/                 # Automatically generated LaTeX results tables
+├── results/                    # CSV performance metrics and automatically generated plots
+├── runner.py                   # Main experiment orchestrator script (sweeps & filters)
+├── manager.py                  # Friendly interactive TUI menu to control experiments
+├── trainer.py                  # Core PyTorch training loop with checkpoint-resume logic
+├── requirements.txt            # Python package dependencies
+└── config.yaml                 # Master configuration file for runs
+```
+*Note: PyTorch model weights (`.pt`/`.pth` checkpoints) have been excluded to keep the repository light.*
+
+---
+
+## Running on a Normal PC
+
+You do not need a supercomputer or a real quantum computer to run this project! You can run it locally on any desktop or laptop using standard python CPU or GPU acceleration.
+
+### 1. Prerequisites & Installation
+Ensure you have Python 3.8+ installed (Python 3.10 or 3.12 is recommended). 
+
+Clone this repository and install the dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Download Datasets
+We use the **Hymenoptera** dataset as a lightweight starting point. You can automatically download and configure it with:
+```bash
+python data/download_datasets.py --dataset hymenoptera
+```
+For other datasets (Brain Tumor MRI, Cats vs Dogs, Solar Panel Dust), run the helper script to view download links and structure requirements:
+```bash
+python data/download_datasets.py --list
+```
+
+### 3. Execution Options
+
+#### Option A: The Interactive Menu (Recommended)
+We provide an interactive Text User Interface (TUI) menu to control execution, view completed runs, and print LaTeX tables. Simply run:
+```bash
+python manager.py
+```
+
+#### Option B: Direct Command Line (CLI)
+You can launch custom training runs using the CLI orchestrator `runner.py`.
+
+* **Classical Baseline (ResNet-18 + Linear Head):**
+  ```bash
+  python runner.py --config config.yaml --dataset hymenoptera --backbone resnet18 --head linear
+  ```
+
+* **Quantum PennyLane (ResNet-18 + PennyLane Ideal VQC):**
+  ```bash
+  python runner.py --config config.yaml --dataset hymenoptera --backbone resnet18 --head pl_ideal
+  ```
+
+* **Quantum Qiskit (MobileNet-V2 + Qiskit Noisy VQC):**
+  ```bash
+  python runner.py --config config.yaml --dataset hymenoptera --backbone mobilenetv2 --head qk_noisy
+  ```
+
+* **Parallel Execution (e.g., using 4 CPU workers):**
+  ```bash
+  python runner.py --config config.yaml --dataset hymenoptera --parallel 4
+  ```
+
+---
+
+## Evaluation & Visualization
+
+Once training finishes, results are stored inside the `results/` folder under a dedicated run directory (e.g. `results/001_pc1_hymenoptera_resnet18_pl_ideal/`).
+This directory will contain:
+* `runs.csv`: Overall run configuration and summary metrics.
+* `training_log.csv`: Training and validation loss/accuracy recorded per epoch.
+* `predictions.csv`: Model predictions, ground truth labels, and raw output probabilities for the test set.
+* `plots/`: Automatically generated PNG plots, including:
+  * **Learning Curves:** Train/validation loss and accuracy.
+  * **Confusion Matrix:** Detail of predictions across classes.
+  * **ROC and Precision-Recall Curves:** Multi-threshold performance visualizers.
+  * **Summary Plot:** A combined overview grid containing all curves.
+
+To aggregate all completed run statistics and generate LaTeX tables for a manuscript, run:
+```bash
+python generate_tables.py
+```
+This will automatically parse the `results/` directory, compute statistical significances, and output the tables under the `paper/tables/` folder.
