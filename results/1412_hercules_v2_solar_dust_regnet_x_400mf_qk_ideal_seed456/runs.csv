@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_regnet_x_400mf_qk_ideal_456,main,456,solar_dust,regnet_x_400mf,qk_ideal,qiskit,classification,simulation,4,3,,,1646,10,0.001,16,409.38864733395167,0.0065641752617835985,0.7583333333333333,0.7871256560666873,0.7583333333333333,0.7521190968017665,0.8655555555555555,2026-05-25T14:14:20.658986

@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_resnet18_linear_42,main,42,cats_vs_dogs,resnet18,linear,classical,classification,simulation,,,,,1024,10,0.001,16,706.5744846130256,0.011616134125181617,0.9816666666666667,0.9818005001389275,0.9816666666666667,0.9816653934300993,0.9989555555555556,2026-04-14T19:12:06.933073

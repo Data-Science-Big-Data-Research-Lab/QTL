@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+brain_tumor_efficientnet_b0_mlp_a_123,main,123,brain_tumor,efficientnet_b0,mlp_a,classical,classification,simulation,,,,,2564,10,0.001,16,480.4965416677296,0.00495611660146981,0.975,0.9751900760304122,0.975,0.974997499749975,0.9958499999999999,2026-04-14T19:01:03.924478

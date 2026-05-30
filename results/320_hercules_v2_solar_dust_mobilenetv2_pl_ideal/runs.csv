@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_mobilenetv2_pl_ideal_456,main,456,solar_dust,mobilenetv2,pl_ideal,pennylane,classification,simulation,4,3,,,5166,10,0.001,16,354.4937335252762,0.0026560839756833883,0.9166666666666666,0.9185267857142857,0.9166666666666666,0.9165739710789766,0.9661111111111111,2026-04-14T23:39:23.126930

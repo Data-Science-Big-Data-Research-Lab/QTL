@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_resnet18_pl_noisy_42,main,42,cats_vs_dogs,resnet18,pl_noisy,pennylane,classification,emulation,4,3,,"amplitude_damping,phase_damping,depolarizing",2094,10,0.001,16,7944.941842369037,0.10968579685200158,0.9616666666666667,0.9639399725320739,0.9616666666666667,0.9616196507388217,0.9761777777777777,2026-04-15T05:45:01.638148

@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_mobilenetv2_pl_noisy_42,main,42,cats_vs_dogs,mobilenetv2,pl_noisy,pennylane,classification,emulation,4,3,,"amplitude_damping,phase_damping,depolarizing",5166,10,0.001,16,7115.82673405204,0.0698399752319947,0.99,0.99,0.99,0.99,0.9996111111111111,2026-04-15T05:39:47.977453

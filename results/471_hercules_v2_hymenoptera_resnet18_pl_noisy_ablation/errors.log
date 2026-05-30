@@ -1,0 +1,525 @@
+[2026-04-15T10:47:57.764438] [hymenoptera_resnet18_pl_noisy_q16_d1_42] MemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 63, in get_final_state
+    state = create_initial_state(sorted(circuit.op_wires), prep, like=interface.get_like())
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/initialize_state.py", line 45, in create_initial_state
+    state = math.zeros((2,) * num_axes, dtype=complex)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+
+================================================================================
+[2026-04-15T10:47:58.754543] [hymenoptera_resnet18_pl_noisy_q16_d3_42] MemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 63, in get_final_state
+    state = create_initial_state(sorted(circuit.op_wires), prep, like=interface.get_like())
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/initialize_state.py", line 45, in create_initial_state
+    state = math.zeros((2,) * num_axes, dtype=complex)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+
+================================================================================
+[2026-04-15T10:47:59.694638] [hymenoptera_resnet18_pl_noisy_q16_d5_42] MemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 63, in get_final_state
+    state = create_initial_state(sorted(circuit.op_wires), prep, like=interface.get_like())
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/initialize_state.py", line 45, in create_initial_state
+    state = math.zeros((2,) * num_axes, dtype=complex)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+
+================================================================================
+[2026-04-15T10:48:31.101509] [hymenoptera_resnet18_pl_noisy_q16_d1_42] MemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 63, in get_final_state
+    state = create_initial_state(sorted(circuit.op_wires), prep, like=interface.get_like())
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/initialize_state.py", line 45, in create_initial_state
+    state = math.zeros((2,) * num_axes, dtype=complex)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+
+================================================================================
+[2026-04-15T10:48:31.958299] [hymenoptera_resnet18_pl_noisy_q16_d3_42] MemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 63, in get_final_state
+    state = create_initial_state(sorted(circuit.op_wires), prep, like=interface.get_like())
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/initialize_state.py", line 45, in create_initial_state
+    state = math.zeros((2,) * num_axes, dtype=complex)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+
+================================================================================
+[2026-04-15T10:48:32.808524] [hymenoptera_resnet18_pl_noisy_q16_d5_42] MemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 63, in get_final_state
+    state = create_initial_state(sorted(circuit.op_wires), prep, like=interface.get_like())
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/initialize_state.py", line 45, in create_initial_state
+    state = math.zeros((2,) * num_axes, dtype=complex)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 64.0 GiB for an array with shape (2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2) and data type complex128
+
+================================================================================
+[2026-04-15T10:49:27.187410] [hymenoptera_resnet18_pl_noisy_q16_d1_42] RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 68719476736 bytes. Error code 12 (Cannot allocate memory)
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 70, in get_final_state
+    state = apply_operation(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 371, in apply_operation
+    return _apply_operation_default(op, state, is_state_batched, debugger, **_)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 388, in _apply_operation_default
+    return apply_operation_einsum(op, state, is_state_batched, debugger, **_)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 241, in apply_operation_einsum
+    return math.einsum(einsum_indices, kraus, state, kraus_dagger)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/math/multi_dispatch.py", line 572, in einsum
+    return np.einsum(indices, *operands, like=like)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/functional.py", line 386, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 68719476736 bytes. Error code 12 (Cannot allocate memory)
+
+================================================================================
+[2026-04-15T10:52:14.941538] [hymenoptera_resnet18_pl_noisy_q16_d3_42] RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 68719476736 bytes. Error code 12 (Cannot allocate memory)
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 70, in get_final_state
+    state = apply_operation(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 371, in apply_operation
+    return _apply_operation_default(op, state, is_state_batched, debugger, **_)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 388, in _apply_operation_default
+    return apply_operation_einsum(op, state, is_state_batched, debugger, **_)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 241, in apply_operation_einsum
+    return math.einsum(einsum_indices, kraus, state, kraus_dagger)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/math/multi_dispatch.py", line 572, in einsum
+    return np.einsum(indices, *operands, like=like)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/functional.py", line 386, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 68719476736 bytes. Error code 12 (Cannot allocate memory)
+
+================================================================================
+[2026-04-15T10:55:34.321529] [hymenoptera_resnet18_pl_noisy_q16_d5_42] RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 68719476736 bytes. Error code 12 (Cannot allocate memory)
+Traceback (most recent call last):
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 838, in execute_runs_sequential
+    result, predictions, training_log = execute_run(run, config, args)
+  File "/lustre/home/dmartin/qtl_experiments/runner.py", line 793, in execute_run
+    result, predictions, training_log = train_and_evaluate(
+  File "/lustre/home/dmartin/qtl_experiments/trainer.py", line 452, in train_and_evaluate
+    logits = head(inputs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/home/dmartin/qtl_experiments/heads/pennylane_head.py", line 346, in forward
+    q_out = self.circuit(x_proj[i], self.weights)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 922, in __call__
+    return self._impl_call(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/qnode.py", line 895, in _impl_call
+    res = execute(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/execution.py", line 233, in execute
+    results = run(tapes, device, config, inner_transform)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 338, in run
+    results = ml_execute(tapes, execute_fn, jpc, device=device)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 240, in execute
+    return ExecuteTapes.apply(kwargs, *parameters)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 89, in new_apply
+    flat_out = orig_apply(out_struct_holder, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/autograd/function.py", line 574, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 93, in new_forward
+    out = orig_fw(ctx, *inp)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/interfaces/torch.py", line 162, in forward
+    res = tuple(kwargs["execute_fn"](ctx.tapes))
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/workflow/run.py", line 256, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/simulator_tracking.py", line 28, in execute
+    results = untracked_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 30, in execute
+    results = batch_execute(self, circuits, execution_config)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/logging/decorators.py", line 61, in wrapper_entry
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 270, in execute
+    return tuple(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/default_mixed.py", line 271, in <genexpr>
+    simulate(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 269, in simulate
+    state, is_state_batched = get_final_state(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/simulate.py", line 70, in get_final_state
+    state = apply_operation(
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/functools.py", line 889, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 371, in apply_operation
+    return _apply_operation_default(op, state, is_state_batched, debugger, **_)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 388, in _apply_operation_default
+    return apply_operation_einsum(op, state, is_state_batched, debugger, **_)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/devices/qubit_mixed/apply_operation.py", line 241, in apply_operation_einsum
+    return math.einsum(einsum_indices, kraus, state, kraus_dagger)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/pennylane/math/multi_dispatch.py", line 572, in einsum
+    return np.einsum(indices, *operands, like=like)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/autoray/autoray.py", line 81, in do
+    return func(*args, **kwargs)
+  File "/home/dmartin/.conda/envs/qtl/lib/python3.10/site-packages/torch/functional.py", line 386, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 68719476736 bytes. Error code 12 (Cannot allocate memory)
+
+================================================================================

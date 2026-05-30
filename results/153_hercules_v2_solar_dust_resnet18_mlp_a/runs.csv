@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_resnet18_mlp_a_456,main,456,solar_dust,resnet18,mlp_a,classical,classification,simulation,,,,,1028,10,0.001,16,299.6169685840141,0.004519366514888831,0.9166666666666666,0.9171301446051168,0.9166666666666667,0.9166435120866907,0.9590277777777778,2026-04-14T19:18:36.982159

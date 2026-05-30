@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_efficientnet_b0_mlp_a_42,main,42,solar_dust,efficientnet_b0,mlp_a,classical,classification,simulation,,,,,2564,10,0.001,16,273.0356389991939,0.0025437626106452438,0.9083333333333333,0.9139678963672204,0.9083333333333333,0.9080203470141454,0.981111111111111,2026-04-14T19:23:21.735533

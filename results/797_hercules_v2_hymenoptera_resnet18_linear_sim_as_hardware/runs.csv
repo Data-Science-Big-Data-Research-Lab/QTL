@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+hymenoptera_resnet18_linear_5ep_42,sim_as_hardware,42,hymenoptera,resnet18,linear,classical,classification,simulation,,,100,,1024,5,0.001,16,48.50316836684942,0.0006733576396151357,0.9743589743589743,0.9743589743589743,0.975609756097561,0.9743421052631579,0.991430454845089,2026-04-28T10:34:19.844721

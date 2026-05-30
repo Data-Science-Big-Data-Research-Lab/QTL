@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_regnet_x_400mf_qk_noisy_123,main,123,cats_vs_dogs,regnet_x_400mf,qk_noisy,qiskit,classification,emulation,4,3,1024,,1646,10,0.001,16,1083.4319360998925,0.01352401252710431,0.9816666666666667,0.9818005001389275,0.9816666666666667,0.9816653934300993,0.9987444444444444,2026-04-15T04:54:05.426706

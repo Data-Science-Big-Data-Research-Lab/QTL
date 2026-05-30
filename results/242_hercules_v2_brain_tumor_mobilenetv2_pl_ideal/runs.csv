@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+brain_tumor_mobilenetv2_pl_ideal_123,main,123,brain_tumor,mobilenetv2,pl_ideal,pennylane,classification,simulation,4,3,,,5166,10,0.001,16,799.3363365090918,0.012399447797097753,0.965,0.965046504650465,0.965,0.9649991249781245,0.99375,2026-04-14T19:42:59.775444

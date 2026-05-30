@@ -1,0 +1,3 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+brain_tumor_mobilenetv2_qk_noisy_42,main,42,brain_tumor,mobilenetv2,qk_noisy,qiskit,classification,emulation,4,3,1024,,5166,10,0.001,16,687.1470281810034,0.00890173517618161,0.9675,0.9680733899026307,0.9675,0.9674900438259217,0.992775,2026-04-15T03:38:02.490523
+brain_tumor_mobilenetv2_qk_noisy_123,main,123,brain_tumor,mobilenetv2,qk_noisy,qiskit,classification,emulation,4,3,1024,,5166,10,0.001,16,695.4970597070642,0.009011867199575167,0.96,0.960414372935642,0.96,0.9599909979745442,0.993825,2026-04-15T03:38:09.693769

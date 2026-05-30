@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_regnet_x_400mf_mlp_b_123,main,123,cats_vs_dogs,regnet_x_400mf,mlp_b,classical,classification,simulation,,,,,59522,10,0.001,16,384.79838457505684,0.006320311643710371,0.9883333333333333,0.9883821715504884,0.9883333333333333,0.9883330416593749,0.9994555555555555,2026-04-14T19:19:00.159670

@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+hymenoptera_mobilenetv2_pl_ideal_789,main,789,hymenoptera,mobilenetv2,pl_ideal,pennylane,classification,simulation,4,3,,,5166,10,0.001,16,153.99690281692892,0.002460467314846748,0.9743589743589743,0.9743589743589743,0.975609756097561,0.9743421052631579,0.996704021094265,2026-04-14T19:28:53.384678

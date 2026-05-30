@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+brain_tumor_efficientnet_b0_pl_noisy_789,main,789,brain_tumor,efficientnet_b0,pl_noisy,pennylane,classification,emulation,4,3,,"amplitude_damping,phase_damping,depolarizing",5166,10,0.001,16,4746.399245500565,0.04899567441853651,0.9775,0.9777986241400876,0.9775,0.9774964838255977,0.995725,2026-04-15T04:47:42.015113

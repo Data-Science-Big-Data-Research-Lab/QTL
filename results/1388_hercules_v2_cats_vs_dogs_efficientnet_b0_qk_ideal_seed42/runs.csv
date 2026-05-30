@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_efficientnet_b0_qk_ideal_42,main,42,cats_vs_dogs,efficientnet_b0,qk_ideal,qiskit,classification,simulation,4,3,,,5166,10,0.001,16,1651.8801805569965,0.029186225239577028,0.995,0.9950055000611118,0.995,0.9949999861110725,0.9999,2026-05-25T14:02:57.206298

@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+hymenoptera_regnet_x_400mf_qk_ideal_5ep_42,sim_as_hardware,42,hymenoptera,regnet_x_400mf,qk_ideal,qiskit,classification,simulation,4,3,100,,1646,5,0.001,16,75.57379175000824,0.0005736619686434044,0.8589743589743589,0.8821428571428571,0.8526697429136454,0.854945054945055,0.961766644693474,2026-05-26T08:33:33.934509

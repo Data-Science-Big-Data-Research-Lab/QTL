@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+brain_tumor_resnet18_qk_noisy_789,main,789,brain_tumor,resnet18,qk_noisy,qiskit,classification,emulation,4,3,1024,,2094,10,0.001,16,801.0242205532268,0.008691235619708658,0.9725,0.9727954971857411,0.9724999999999999,0.9724957024535084,0.9857750000000002,2026-04-15T03:29:54.111746

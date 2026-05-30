@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+hymenoptera_efficientnet_b0_qk_ideal_0,main,0,hymenoptera,efficientnet_b0,qk_ideal,qiskit,classification,simulation,4,3,,,5166,10,0.001,16,229.82673049799632,0.0040657231599274335,0.9487179487179487,0.9555555555555555,0.9459459459459459,0.9481727574750831,0.982201713909031,2026-05-25T12:58:49.156834

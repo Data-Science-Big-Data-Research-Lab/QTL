@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_mobilenetv2_mlp_b_0,main,0,cats_vs_dogs,mobilenetv2,mlp_b,classical,classification,simulation,,,,,172162,10,0.001,16,553.3144480090123,0.009089623263248378,0.99,0.9900871266002844,0.99,0.9899995555358015,0.9995333333333334,2026-04-14T19:12:51.047696

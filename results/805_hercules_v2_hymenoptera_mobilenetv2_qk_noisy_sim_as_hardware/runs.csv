@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+hymenoptera_mobilenetv2_qk_noisy_5ep_42,sim_as_hardware,42,hymenoptera,mobilenetv2,qk_noisy,qiskit,classification,emulation,4,3,100,,5166,5,0.001,16,71.1390687264502,0.0006735771010378396,0.8076923076923077,0.8557692307692308,0.8170731707317074,0.803790038571189,0.996044825313118,2026-04-28T10:34:48.215761

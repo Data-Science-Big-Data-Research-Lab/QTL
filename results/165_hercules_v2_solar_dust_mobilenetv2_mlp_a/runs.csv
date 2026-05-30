@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_mobilenetv2_mlp_a_0,main,0,solar_dust,mobilenetv2,mlp_a,classical,classification,simulation,,,,,2564,10,0.001,16,262.16324844403425,0.002582905561339128,0.9,0.9017857142857143,0.9,0.899888765294772,0.9701388888888889,2026-04-14T19:22:15.419313

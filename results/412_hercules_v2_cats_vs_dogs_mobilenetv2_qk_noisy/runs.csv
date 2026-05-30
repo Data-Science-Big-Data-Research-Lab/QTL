@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+cats_vs_dogs_mobilenetv2_qk_noisy_456,main,456,cats_vs_dogs,mobilenetv2,qk_noisy,qiskit,classification,emulation,4,3,1024,,5166,10,0.001,16,1259.9833279640297,0.020698770364268104,0.9883333333333333,0.9884690191719923,0.9883333333333333,0.9883325230918814,0.9977555555555556,2026-04-15T04:03:41.778763

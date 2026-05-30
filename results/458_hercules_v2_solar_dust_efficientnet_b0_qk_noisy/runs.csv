@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_efficientnet_b0_qk_noisy_456,main,456,solar_dust,efficientnet_b0,qk_noisy,qiskit,classification,emulation,4,3,1024,,5166,10,0.001,16,356.17396738706157,0.0028171500668329923,0.8833333333333333,0.8942857142857144,0.8833333333333333,0.8825174825174825,0.9619444444444444,2026-04-15T05:05:10.753062

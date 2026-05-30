@@ -1,0 +1,2 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+brain_tumor_resnet18_pl_ideal_456,main,456,brain_tumor,resnet18,pl_ideal,pennylane,classification,simulation,4,3,,,2094,10,0.001,16,899.0391856771894,0.007198078355115728,0.9625,0.9630672573903032,0.9624999999999999,0.9624885121068327,0.99125,2026-04-28T10:22:58.226737

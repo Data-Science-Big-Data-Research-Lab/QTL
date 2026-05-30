@@ -1,0 +1,3 @@
+run_id,study,seed,dataset,backbone,head,head_type,task_type,environment,n_qubits,depth,shots,noise_channels,n_trainable_params,epochs,lr,batch_size,train_time_s,energy_kwh,test_accuracy,test_precision,test_recall,test_f1,test_auc,timestamp
+solar_dust_resnet18_qk_noisy_123,main,123,solar_dust,resnet18,qk_noisy,qiskit,classification,emulation,4,3,1024,,2094,10,0.001,16,377.7504755128175,0.0029714416991442976,0.5,0.25,0.5,0.3333333333333333,0.8483333333333334,2026-04-15T04:52:51.323972
+solar_dust_resnet18_qk_noisy_456,main,456,solar_dust,resnet18,qk_noisy,qiskit,classification,emulation,4,3,1024,,2094,10,0.001,16,435.8764477991499,0.00490525643793622,0.45,0.23684210526315788,0.45,0.3103448275862069,0.45694444444444443,2026-04-15T04:53:49.961348
