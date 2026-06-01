@@ -161,7 +161,7 @@ noise_decomposition:
   enabled: true
   datasets: ["hymenoptera", "brain_tumor", "cats_vs_dogs", "solar_dust"]
   backbones: ["resnet18", "mobilenetv2", "efficientnet_b0", "regnet_x_400mf"]
-  base_head: "pl_noisy"
+  base_head: ["pl_noisy","qk_noisy"]
   channels:
     - name: "amplitude_damping"
       noise_channels: ["amplitude_damping"]
